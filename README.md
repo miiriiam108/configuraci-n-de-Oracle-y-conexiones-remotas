@@ -34,5 +34,5 @@ Porque la carpeta bin de Oracle está incluida en la variable de entorno PATH
 
 ## BIBLIOGRAFÍA
 
-[Variables de entorno](https://docs.oracle.com/en/database/oracle/oracle-database/26/sqpug/configuring-SQL-Plus.html#GUID-5A2953BF-9E2F-450B-AFBA-EE2846C59B5E)
+[![Variables de entorno](img/)](https://docs.oracle.com/en/database/oracle/oracle-database/26/sqpug/configuring-SQL-Plus.html#GUID-5A2953BF-9E2F-450B-AFBA-EE2846C59B5E)
 
