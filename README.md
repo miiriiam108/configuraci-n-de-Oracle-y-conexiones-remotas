@@ -16,4 +16,4 @@
       - ORACLE_BASE = C:\app\X1704\product\21c -> contiene la carpeta raíz de Oracle.
       - RACLE_SID = XE -> contiene el identificador de la instancia
 
-  ![Captura 2](img/Captura%20de%20pantalla%202026-11-05%20105122.png)
+  ![Captura 2](img/Captura%20de%20pantalla%202026-11-05%20105910.png)
