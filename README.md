@@ -21,7 +21,11 @@
 
 ### 2. ¿Por qué se puede ejecutar sqlplus desde cualquier carpeta del dispositivo?
 
-Porque la carpeta bin de Oracle está incluida en la variable de entorno PATH 
+He ejecutado en el CMD el comando `path` y he comprobado que la carpeta:
+
+`C:\app\X1704\product\21c\dbhomeXE\bin` está incluida en la variable PATH de windows.
+
+Esto permite que el sistema operativo encuentre el ejecutable sqlplus.exe sin necesidad de indicar la ruta completa, por lo que puede ejecutarse desde cualquier carpeta.
 
 
 
