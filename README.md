@@ -6,11 +6,10 @@
 1. Abrir las variables de entorno
    1. Pulso a la vez la tecla windows + r.
    2. Escribo: regedit y entro.
+   3. He localizado los valores de Oracle en el registro de Windows con la ruta: HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE\KEY_OraDB21Home1
       
   ![Captura 1](img/Captura%20de%20pantalla%202026-11-05%20105556.png)
-
-   3. He localizado los valores de Oracle en el registro de Windows con la ruta:
-     HKEY_LOCAL_MACHINE\SOFTWARE\ORACLE\KEY_OraDB21Home1
+     
 2. Buscar las variables.
    1. Las variables encontradas son:
 
