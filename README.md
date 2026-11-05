@@ -24,3 +24,6 @@
 
 ## ERRORES
 1. BLOQUE 1: He comprobado que las variables de Oracle no estaban definidas en las variables de entorno de Windows, por lo que las he localizado en el Registro de Windows, donde Oracle almacena parte de su configuración.
+   
+![Captura 2](img/Captura%20de%20pantalla%202026-11-05%20110325.png)
+
