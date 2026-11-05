@@ -14,9 +14,9 @@
 2. Buscar las variables.
    1. Las variables encontradas son:
 
-      - ORACLE_HOME = C:\app\X1704\product\21c\dbhomeXE -> contiene dónde está instalado Oracle.
+      - ORACLE_HOME = C:\app\X1704\product\21c\dbhomeXE -> Variable de entorno para especificar dónde está instalado SQL*Plus. 
       - ORACLE_BASE = C:\app\X1704\product\21c -> contiene la carpeta raíz de Oracle.
-      - ORACLE_SID = XE -> contiene el identificador de la instancia
+      - ORACLE_SID = XE -> Variable de entorno para especificar la instancia de la base de datos.
 
   ![Captura 2](img/Captura%20de%20pantalla%202026-11-05%20105910.png)
 
@@ -34,5 +34,6 @@ Porque la carpeta bin de Oracle está incluida en la variable de entorno PATH
 
 ## BIBLIOGRAFÍA
 
-[![Variables de entorno](img/)](https://docs.oracle.com/en/database/oracle/oracle-database/26/sqpug/configuring-SQL-Plus.html#GUID-5A2953BF-9E2F-450B-AFBA-EE2846C59B5E)
+[Variables de entorno](https://docs.oracle.com/en/database/oracle/oracle-database/26/sqpug/configuring-SQL-Plus.html#GUID-5A2953BF-9E2F-450B-AFBA-EE2846C59B5E)
+
 
