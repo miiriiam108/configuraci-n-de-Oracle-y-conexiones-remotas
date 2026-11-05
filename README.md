@@ -1,6 +1,8 @@
 # configuraci-n-de-Oracle-y-conexiones-remotas
 
 ## Bloque 1. Entorno
+
+### 1. Localizar los valores
 1. Abrir las variables de entorno
    1. Pulso a la vez la tecla windows + r.
    2. Escribo: regedit y entro.
@@ -18,6 +20,9 @@
 
   ![Captura 2](img/Captura%20de%20pantalla%202026-11-05%20105910.png)
 
+### 2. ¿Por qué se puede ejecutar sqlplus desde cualquier carpeta del dispositivo?
+
+Porque la carpeta bin de Oracle está incluida en la variable de entorno PATH 
 
 
 
@@ -26,4 +31,7 @@
 1. BLOQUE 1: He comprobado que las variables de Oracle no estaban definidas en las variables de entorno de Windows, por lo que las he localizado en el Registro de Windows, donde Oracle almacena parte de su configuración.
    
 ![Captura 2](img/Captura%20de%20pantalla%202026-11-05%20110325.png)
+
+## BIBLIOGRAFÍA
+
 
