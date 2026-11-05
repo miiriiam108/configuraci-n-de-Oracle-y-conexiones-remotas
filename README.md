@@ -21,7 +21,9 @@
 
 ### 2. ¿Por qué se puede ejecutar sqlplus desde cualquier carpeta del dispositivo?
 
-He ejecutado en el CMD el comando `path` y he comprobado que la carpeta:
+He ejecutado en el CMD el comando `path` 
+
+y he comprobado que la carpeta:
 
 `C:\app\X1704\product\21c\dbhomeXE\bin` está incluida en la variable PATH de windows.
 
