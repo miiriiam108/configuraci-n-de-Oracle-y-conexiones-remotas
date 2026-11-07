@@ -60,7 +60,7 @@ Indica el tiempo máximo de espera, en segundos, para que Oracle se cierre corre
 
 Indica el tiempo de parada que realizará Oracle. El valor "immediate" ordena el cierre inmediato  de la instancia, finalizando las sesiones activas y realizando las operaciones necesarias antes de detener la base de datos.
 
-  ![Captura 5](img/Captura%20de%20pantalla%202026-11-07%20115324.png)
+  ![Captura 5](img/Captura%20de%20pantalla%202026-11-07%20104302.png)
 
 ## ERRORES
 1. BLOQUE 1: He comprobado que las variables de Oracle no estaban definidas en las variables de entorno de Windows, por lo que las he localizado en el Registro de Windows, donde Oracle almacena parte de su configuración.
@@ -69,6 +69,9 @@ Indica el tiempo de parada que realizará Oracle. El valor "immediate" ordena el
 
 ## BIBLIOGRAFÍA
 
-[Variables de entorno](https://docs.oracle.com/en/database/oracle/oracle-database/26/sqpug/configuring-SQL-Plus.html#GUID-5A2953BF-9E2F-450B-AFBA-EE2846C59B5E)
+- [Variables de entorno](https://docs.oracle.com/en/database/oracle/oracle-database/26/sqpug/configuring-SQL-Plus.html#GUID-5A2953BF-9E2F-450B-AFBA-EE2846C59B5E)
+
+
+- [Inicio y Detener Oracle Database XE](https://docs.oracle.com/en/database/oracle/oracle-database/21/xeinw/starting-and-stopping-oracle-database-xe.html)
 
 
