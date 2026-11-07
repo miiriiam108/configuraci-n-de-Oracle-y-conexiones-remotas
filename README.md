@@ -62,6 +62,28 @@ Indica el tiempo de parada que realizará Oracle. El valor "immediate" ordena el
 
   ![Captura 5](img/Captura%20de%20pantalla%202026-11-07%20104302.png)
 
+
+###  Localiza los archivos listener.ora , sqlnet.ora y tnsnames.ora del servidor. ¿En qué carpeta están? ¿Para qué sirve cada uno?
+
+He localizado los archivos en:
+
+`C:\app\X1704\product\21c\dbhomeXE\network\admin\sample`
+
+Los archivos contienen:
+
+- listener.ora
+
+Este fichero contiene la configuración del Listener de Oracle. El Listener es el servicio encargado de escuchar las peticiones de conexión de los clientes y dirigirlas a la instancia correspondiente de la base de datos.
+
+- sqlnet.ora
+
+Este fichero contiene parámetros de configuración de Oracle Net Services y permite definir aspectos relacionados con la comunicación entre cliente y servidor, así como la resolución de nombres utilizada durante las conexiones.
+
+- tnsnames.ora
+
+Este fichero contiene los alias y parámetros de conexión utilizados por los clientes para localizar y conectarse a una base de datos Oracle. En él se define el nombre del host, el puerto y el servicio de la base de datos.
+
+
 ## ERRORES
 1. BLOQUE 1: He comprobado que las variables de Oracle no estaban definidas en las variables de entorno de Windows, por lo que las he localizado en el Registro de Windows, donde Oracle almacena parte de su configuración.
    
@@ -71,7 +93,8 @@ Indica el tiempo de parada que realizará Oracle. El valor "immediate" ordena el
 
 - [Variables de entorno](https://docs.oracle.com/en/database/oracle/oracle-database/26/sqpug/configuring-SQL-Plus.html#GUID-5A2953BF-9E2F-450B-AFBA-EE2846C59B5E)
 
-
 - [Inicio y Detener Oracle Database XE](https://docs.oracle.com/en/database/oracle/oracle-database/21/xeinw/starting-and-stopping-oracle-database-xe.html)
+
+- [Archivos del servidor](https://es.scribd.com/document/229452992/Ejemplo-Ficheros-SQL-Net)
 
 
