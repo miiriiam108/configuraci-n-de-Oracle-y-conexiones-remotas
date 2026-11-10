@@ -149,11 +149,23 @@ Ambas tienen `RESTRICTED = NO`, lo que significa que no están en modo
 restringido y pueden conectarse todos los usuarios con permisos, no solo
 los administradores.
 
+  ![Captura 8](img/Captura%20de%20pantalla%202026-11-10%20204614.png)
 
 
+### 8. Sin desconectarte, entra en tu PDB de trabajo, demuestra que estás dentro y vuelve a la raíz. ¿Qué nombre de base de datos se obtiene dentro de la PDB? Explícalo
 
 
+Con `ALTER SESSION SET CONTAINER=XEPDB1` cambio de contenedor sin cerrar
+la sesión. `SHOW CON_NAME` demuestra que estoy dentro (`XEPDB1`), y con
+el mismo comando apuntando a `CDB$ROOT` vuelvo a la raíz. El usuario
+sigue siendo `SYS`, porque cambiar de contenedor no cambia quién soy.
+Dentro de la PDB, `SELECT NAME FROM V$DATABASE` devuelve `XE`, no
+`XEPDB1`. Esto es porque `V$DATABASE` muestra el nombre de la base de
+datos física, la CDB, que es única y contiene a todas las PDBs. La PDB es
+un contenedor lógico dentro de ella, y su nombre se ve con `SHOW CON_NAME`.
 
+  ![Captura 9](img/Captura%20de%20pantalla%202026-11-10%20.png)
+  ![Captura 10](img/Captura%20de%20pantalla%202026-11-10%20.png)
 
 
 
