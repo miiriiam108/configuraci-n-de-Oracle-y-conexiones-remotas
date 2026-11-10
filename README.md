@@ -33,7 +33,7 @@ está incluida en la variable PATH de Windows.
 
 Esto permite que el sistema operativo encuentre el ejecutable sqlplus.exe sin necesidad de indicar la ruta completa, por lo que puede ejecutarse desde cualquier carpeta.
 
-  ![Captura 4]()
+  ![Captura 4](img/Captura%20de%20pantalla%202026-11-10%20200438.png)
 
 
 ### 3. Localiza las entradas que controlan el arranque y la parada automáticos de tu instancia. Indica su valor y qué significa cada una.
@@ -63,11 +63,11 @@ Indica el tiempo de parada que realizará Oracle. El valor "immediate" ordena el
   ![Captura 5](img/Captura%20de%20pantalla%202026-11-07%20104302.png)
 
 
-###  Localiza los archivos listener.ora , sqlnet.ora y tnsnames.ora del servidor. ¿En qué carpeta están? ¿Para qué sirve cada uno?
+### 4. Localiza los archivos listener.ora , sqlnet.ora y tnsnames.ora del servidor. ¿En qué carpeta están? ¿Para qué sirve cada uno?
 
 He localizado los archivos en:
 
-`C:\app\X1704\product\21c\dbhomeXE\network\admin\sample`
+`C:\app\miria\product\21c\dbhomeXE\network\admin`
 
 Los archivos contienen:
 
@@ -82,6 +82,54 @@ Este fichero contiene parámetros de configuración de Oracle Net Services y per
 - tnsnames.ora
 
 Este fichero contiene los alias y parámetros de conexión utilizados por los clientes para localizar y conectarse a una base de datos Oracle. En él se define el nombre del host, el puerto y el servicio de la base de datos.
+
+
+## Bloque 2. Primera conexión y PDBs
+
+
+### 5. Conéctate como administrador a la base de datos sin escribir usuario ni contraseña. Explica por qué es posible.
+
+primero me identifico con el comando 
+
+`whoami`
+
+Para conectarme he utilizado
+
+`sqlplus / as sysdba`
+
+Y una vez dentro de sql me identifico 
+
+`SHOW USER`
+
+¿Por qué es posible?
+Porque al escribir / en vez de el usuario y la contraseña, Oracle no valida la contraseña.
+Con AS SYSDBA, Oracle comprueba que el usuario de Windows pertenece al grupo local, ORA_DBA, si pertenece, le concede el privilegio SYSDBA y entra como SYS
+
+
+  ![Captura 6](img/Captura%20de%20pantalla%202026-11-10%20.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## ERRORES
