@@ -33,7 +33,7 @@ está incluida en la variable PATH de Windows.
 
 Esto permite que el sistema operativo encuentre el ejecutable sqlplus.exe sin necesidad de indicar la ruta completa, por lo que puede ejecutarse desde cualquier carpeta.
 
-  ![Captura 4](img/Captura%20de%20pantalla%202026-11-05%20115324.png)
+  ![Captura 4]()
 
 
 ### 3. Localiza las entradas que controlan el arranque y la parada automáticos de tu instancia. Indica su valor y qué significa cada una.
