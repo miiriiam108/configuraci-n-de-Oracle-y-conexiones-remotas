@@ -106,9 +106,32 @@ Porque al escribir / en vez de el usuario y la contraseña, Oracle no valida la 
 Con AS SYSDBA, Oracle comprueba que el usuario de Windows pertenece al grupo local, ORA_DBA, si pertenece, le concede el privilegio SYSDBA y entra como SYS
 
 
-  ![Captura 6](img/Captura%20de%20pantalla%202026-11-10%20.png)
+  ![Captura 6](img/Captura%20de%20pantalla%202026-11-10%20203134.png)
 
 
+### 6. Muestra en qué contenedor estás, con qué usuario y cuál es el nombre de la base de datos.
+
+- Para ver el contenedor:
+
+He utilizado 
+
+`show con_name`
+
+y me ha salido el contendor CDB&ROOT que es el contenedor raíz de la base de datos.
+
+- Para ver el usuario:
+
+He vuelto a utilizar el comando
+
+`show user`
+
+- Para ver el nombre de la base de datos:
+
+He utilizado el comando:
+
+`select name from v&database;`
+
+el XE es el nombre de la base de datos que corresponde con la CDB completa, no a una PDB.
 
 
 
