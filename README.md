@@ -180,6 +180,58 @@ desde Oracle con `ALTER SYSTEM SET`, que valida el parámetro y lo escribe
 de forma segura. Para ver su contenido en texto se genera una copia legible
 con `CREATE PFILE FROM SPFILE`.
 
+  ![Captura 11](img/Captura%20de%20pantalla%202026-11-10%20205947.png)
+  ![Captura 12](img/Captura%20de%20pantalla%202026-11-10%20210110.png)
+
+
+### 10. Genera una copia legible del SPFILE en una carpeta tuya y muestra en ella los valores de db_name , processes y open_cursors .
+
+La orden CREATE PFILE='C:\practica\init_xe_copia.ora' FROM SPFILE; genera un archivo de texto plano (PFILE) con todos los parámetros de inicialización que contiene el SPFILE de la instancia. El SPFILE (SPFILEXE.ORA) es binario y no se puede leer ni editar con un editor de texto, así que esta copia legible permite ver su contenido sin tocar el original. El SPFILE no se modifica: sigue teniendo el mismo tamaño y la misma fecha.
+Con findstr se buscan en la copia los tres parámetros pedidos:
+- db_name = 'XE': nombre de la base de datos (la CDB).
+
+
+- open_cursors = 300: número máximo de cursores abiertos por sesión.
+
+
+- processes = 300: número máximo de procesos del sistema operativo que pueden conectarse a la instancia.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
