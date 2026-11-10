@@ -209,14 +209,19 @@ aparece como `IMMEDIATE`, por lo que puede cambiarse sin reiniciar.
 `processes` también aparece como `IMMEDIATE` en el diccionario, lo cual no
 es lo normal.
 
+  ![Captura 15](img/Captura%20de%20pantalla%202026-11-10%20212801.png)
+
+### 12. Aumenta open_cursors un 25 % de forma inmediata y permanente. Demuestra que el cambio está en uso y guardado
 
 
 
+### 13. Aumenta processes en 20 de forma permanente. Muestra el valor en uso y el guardado antes y después de reiniciar, y explica la diferencia
 
 
+### 14. Cambia el formato de fecha a DD/MM/YYYY HH24:MI:SS solo para tu sesión. Demuestra que el cambio funciona y que se pierde al volver a conectar
 
 
-
+### 15. Deja open_cursors y processes con sus valores originales y demuéstralo
 
 
 
