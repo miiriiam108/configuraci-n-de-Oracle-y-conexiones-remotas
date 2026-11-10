@@ -158,20 +158,27 @@ los administradores.
 Con `ALTER SESSION SET CONTAINER=XEPDB1` cambio de contenedor sin cerrar
 la sesión. `SHOW CON_NAME` demuestra que estoy dentro (`XEPDB1`), y con
 el mismo comando apuntando a `CDB$ROOT` vuelvo a la raíz. El usuario
-sigue siendo `SYS`, porque cambiar de contenedor no cambia quién soy.
+sigue siendo `SYS`.
 Dentro de la PDB, `SELECT NAME FROM V$DATABASE` devuelve `XE`, no
 `XEPDB1`. Esto es porque `V$DATABASE` muestra el nombre de la base de
-datos física, la CDB, que es única y contiene a todas las PDBs. La PDB es
+datos, la CDB, que es única y contiene a todas las PDBs. La PDB es
 un contenedor lógico dentro de ella, y su nombre se ve con `SHOW CON_NAME`.
 
-  ![Captura 9](img/Captura%20de%20pantalla%202026-11-10%20.png)
-  ![Captura 10](img/Captura%20de%20pantalla%202026-11-10%20.png)
+  ![Captura 9](img/Captura%20de%20pantalla%202026-11-10%20205339.png)
+  ![Captura 10](img/Captura%20de%20pantalla%202026-11-10%20205350.png)
 
 
+## Bloque 3: La instancia
 
+### 9. Localiza el SPFILE de tu instancia. ¿Cómo se llama y dónde está? ¿Por qué no debe editarse con un editor de texto?
 
-
-
+El SPFILE se llama `SPFILEXE.ORA` y está en `C:\APP\MIRIA\PRODUCT\21C\DATABASE\`. Es el archivo de parámetros de inicialización que la instancia lee al arrancar.
+No debe editarse con un editor de texto porque es un archivo binario: un
+editor puede alterar su contenido al guardarlo y corromperlo, y la
+instancia no podría leer sus parámetros al arrancar. Los cambios se hacen
+desde Oracle con `ALTER SYSTEM SET`, que valida el parámetro y lo escribe
+de forma segura. Para ver su contenido en texto se genera una copia legible
+con `CREATE PFILE FROM SPFILE`.
 
 
 
