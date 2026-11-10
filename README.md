@@ -133,10 +133,21 @@ He utilizado el comando:
 
 el XE es el nombre de la base de datos que corresponde con la CDB completa, no a una PDB.
 
+  ![Captura 7](img/Captura%20de%20pantalla%202026-11-10%20203653.png)
 
 
+### 7. Muestra las PDBs de tu base de datos y explica el estado de cada una.
+La base de datos tiene dos PDBs:
 
-
+- `PDB$SEED` (CON_ID 2): es la PDB plantilla que Oracle usa para crear
+  nuevas PDBs. Está en `READ ONLY`, es decir, abierta solo para lectura,
+  y no se trabaja en ella.
+- `XEPDB1` (CON_ID 3): es la PDB de trabajo que crea el instalador de XE.
+  Está en `READ WRITE`: abierta, y los usuarios pueden leer y escribir
+  en ella.
+Ambas tienen `RESTRICTED = NO`, lo que significa que no están en modo
+restringido y pueden conectarse todos los usuarios con permisos, no solo
+los administradores.
 
 
 
