@@ -197,8 +197,17 @@ Con findstr se buscan en la copia los tres parámetros pedidos:
 - processes = 300: número máximo de procesos del sistema operativo que pueden conectarse a la instancia.
 
 
+  ![Captura 13](img/Captura%20de%20pantalla%202026-11-10%20211003.png)
+  ![Captura 14](img/Captura%20de%20pantalla%202026-11-10%20211208.png)
 
 
+### 11. Indica cuál de los parámetros open_cursors y processes puede cambiarse sin reiniciar la instancia. Justifícalo con una consulta al diccionario.
+
+La columna `ISSYS_MODIFIABLE` indica si un parámetro puede cambiarse con
+`ALTER SYSTEM` sin reiniciar: `IMMEDIATE` se aplica ya. En mi instancia `open_cursors`
+aparece como `IMMEDIATE`, por lo que puede cambiarse sin reiniciar.
+`processes` también aparece como `IMMEDIATE` en el diccionario, lo cual no
+es lo normal.
 
 
 
