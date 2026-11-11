@@ -284,11 +284,34 @@ Me he conectado con `CONNECT SYSTEM`. Al ejecutar `SHUTDOWN IMMEDIATE`, Oracle r
   ![Captura 32](img/Captura%20de%20pantalla%202026-11-11%20130611.png)
 
 
+## Bloque 5: Servidor accesible por red
 
 
+### 19. Indica la IP del servidor y el tipo de red de la máquina virtual. Demuestra que servidor y cliente están en la misma red
+
+ Añadí un Adaptador 2 en modo "solo anfitrión", que recibió por DHCP la IP `192.168.56.101` con máscara `255.255.255.0`. Esa es
+la IP del servidor para la práctica. El cliente (equipo anfitrión) tiene la IP `192.168.56.1` y la misma máscara
+en el adaptador "VirtualBox Host-Only". Ambas direcciones comparten la red `192.168.56.0/24`, por lo que están en la misma red.
+El `ping` desde el cliente agotó el tiempo de espera, pero eso no indica redes distintas: lo más probable es que el cortafuegos de Windows del
+servidor bloquee el eco ICMP. Para confirmar la conectividad, consulté la tabla ARP del cliente: `arp -a 192.168.56.101` devuelve la MAC
+`08-00-27-ce-cf-c2`, que coincide con la del Adaptador 2 de la VM (`080027CECFC2`). Esto demuestra que el cliente alcanza al servidor a
+nivel de red. 
+
+  ![Captura 32](img/Captura%20de%20pantalla%202026-11-11%20130611.png)
+  ![Captura 32](img/Captura%20de%20pantalla%202026-11-11%20130611.png)
+  ![Captura 32](img/Captura%20de%20pantalla%202026-11-11%20130611.png)
+  ![Captura 32](img/Captura%20de%20pantalla%202026-11-11%20130611.png)
+  ![Captura 32](img/Captura%20de%20pantalla%202026-11-11%20130611.png)
+  ![Captura 32](img/Captura%20de%20pantalla%202026-11-11%20130611.png)
+  ![Captura 32](img/Captura%20de%20pantalla%202026-11-11%20130611.png)
 
 
+### 20. Comprueba que el listener está arrancado, en qué dirección y puerto escucha y qué servicios conoce. Si solo admite conexiones locales, corrígelo y documenta el antes y el después
 
+### 21. Configura el cortafuegos del servidor para que acepte conexiones al listener solo desde la red de las máquinas virtuales.
+
+
+### 22. Desde el propio servidor, conéctate a la PDB usando su IP (no localhost ) y comprueba que el listener responde
 
 
 
