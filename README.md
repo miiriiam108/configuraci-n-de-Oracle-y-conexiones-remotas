@@ -214,29 +214,34 @@ es lo normal.
 ### 12. Aumenta open_cursors un 25 % de forma inmediata y permanente. Demuestra que el cambio está en uso y guardado
 
 El valor original de `open_cursors` era 300. Un aumento del 25 % es 375. Usé `ALTER SYSTEM SET ... SCOPE=BOTH`: `MEMORY` lo aplica en la instancia en ejecución sin reiniciar y `SPFILE` lo escribe en el archivo de parámetros, y `BOTH` hace las dos cosas. Después del cambio, `SHOW PARAMETER` y `V$SYSTEM_PARAMETER` muestran 375. Además, la fecha de `SPFILEXE.ORA` cambió, lo que confirma que se reescribió.
+
   ![Captura 16](img/Captura%20de%20pantalla%202026-11-11%20114303.png)
 
 
 ### 13. Aumenta processes en 20 de forma permanente. Muestra el valor en uso y el guardado antes y después de reiniciar, y explica la diferencia
 
+**Explicación:**
+El valor original de `processes` era 300, tanto en uso como guardado. Con un aumento de 20, es 320. Para hacerlo permanente he usado `ALTER SYSTEM SET processes=320 SCOPE=SPFILE;`, que escribe el valor en el SPFILE sin aplicarlo a la instancia en marcha.
+Antes de reiniciar, `SHOW PARAMETER` seguía en 300, y `SHOW SPPARAMETER` ya era 320. Después lo he reiniciado con `SHUTDOWN IMMEDIATE` y `STARTUP`. Después del reinicio, la PDB `XEPDB1` quedó en `READ WRITE` sin necesidad de abrirla, y el valor en uso y el guardado pasaron a ser 320. La diferencia se debe a que `processes` dimensiona recursos que Oracle reserva al arrancar, por lo que el cambio solo tiene efecto tras reiniciar. Aunque el diccionario indicaba `IMMEDIATE`, la prueba real mostró que exige reinicio. `open_cursors`.
 
-
-
-
-
-
-
-
-
-
-  ![Captura 16](img/Captura%20de%20pantalla%202026-11-11%20114303.png)
-  ![Captura 16](img/Captura%20de%20pantalla%202026-11-11%20114303.png)
-  ![Captura 16](img/Captura%20de%20pantalla%202026-11-11%20114303.png)
-  ![Captura 16](img/Captura%20de%20pantalla%202026-11-11%20114303.png)
-
+  ![Captura 17](img/Captura%20de%20pantalla%202026-11-11%20115411.png)
+  
+  ![Captura 18](img/Captura%20de%20pantalla%202026-11-11%20115433.png)
+  
+  ![Captura 19](img/Captura%20de%20pantalla%202026-11-11%20115449.png)
+  
+  ![Captura 20](img/Captura%20de%20pantalla%202026-11-11%20120451.png)
+  
+  ![Captura 21](img/Captura%20de%20pantalla%202026-11-11%20120528.png)
 
 
 ### 14. Cambia el formato de fecha a DD/MM/YYYY HH24:MI:SS solo para tu sesión. Demuestra que el cambio funciona y que se pierde al volver a conectar
+
+Con `ALTER SESSION SET NLS_DATE_FORMAT` cambié el formato de fecha solo para mi sesión. Antes del cambio, `SYSDATE` se mostraba como formato original. Después, aparece como formato nuevo, con año de cuatro cifras y hora. El cambio solo afecta a mi sesión porque los parámetros NLS de sesión se guardan en memoria mientras dura la conexión y no se escriben en el SPFILE. Al reconectar con `CONNECT`, Oracle crea una sesión nueva con los valores por defecto, y `SYSDATE` volvió a mostrarse con el formato original, con lo que el cambio se ha perdido.
+
+  ![Captura 22](img/Captura%20de%20pantalla%202026-11-11%20120451.png)
+  
+  ![Captura 23](img/Captura%20de%20pantalla%202026-11-11%20120528.png)
 
 
 ### 15. Deja open_cursors y processes con sus valores originales y demuéstralo
