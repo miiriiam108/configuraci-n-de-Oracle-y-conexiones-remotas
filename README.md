@@ -248,14 +248,30 @@ Con `ALTER SESSION SET NLS_DATE_FORMAT` cambié el formato de fecha solo para mi
 
 Los valores originales, eran `open_cursors` = 300 y `processes` = 300.Luego han pasado a 375 y 320. `open_cursors` se restauró con `ALTER SYSTEM ... SCOPE=BOTH`, que lo ha aplicado al momento y lo ha guardado. `processes` se restauró con `SCOPE=SPFILE`: antes de reiniciar el valor en uso seguía en 320 y el guardado ya era 300. Tras `SHUTDOWN IMMEDIATE` y `STARTUP`, la instancia leyó el SPFILE y aplicó 300. Ahora los dos parámetros valen 300 en uso y guardados, igual que al principio
 
-  ![Captura 24](img/Captura%20de%20pantalla%202026-11-11%20122039.png)
-  ![Captura 25](img/Captura%20de%20pantalla%202026-11-11%20122039.png)
-  ![Captura 26](img/Captura%20de%20pantalla%202026-11-11%20122039.png)
-  ![Captura 27](img/Captura%20de%20pantalla%202026-11-11%20122039.png)
-  ![Captura 28](img/Captura%20de%20pantalla%202026-11-11%20122039.png)
+  ![Captura 24](img/Captura%20de%20pantalla%202026-11-11%20122825.png)
+  ![Captura 25](img/Captura%20de%20pantalla%202026-11-11%20123108.png)
+  ![Captura 26](img/Captura%20de%20pantalla%202026-11-11%20123233.png)
+  ![Captura 27](img/Captura%20de%20pantalla%202026-11-11%20123313.png)
+  ![Captura 28](img/Captura%20de%20pantalla%202026-11-11%20123337.png)
+
+
+## Bloque 4: Cuentas de administración
+
+### 16. Muestra en qué contenedores existen las cuentas SYS, SYSTEM y PDBADMIN, su estado y si son comunes o locales. Explica la diferencia entre las tres.
+
+- SYS:  Todas las tablas y vistas para el diccionario de datos de la base de datos están almacenados en el esquema SYS. Estas tablas y vistas son críticas para el funcionamiento de la base de datos ORACLE. Para mantener la integridad del diccionario de datos, las tablas del esquema SYS son manipulados solo por la base de datos. Nunca se debería modificar algo o crear tablas en el esquema del usuario SYS
+
+- SYSTEM: El usuario SYSTEM se utiliza para crear tablas y vistas adicionales que muestran información administrativa, tablas internas y vistas utilizado por varias opciones y herramientas de la base de datos ORACLE. No se recomienda utilizar el esquema SYSTEM para almacenar tablas de interés para usuarios no administrativos. Esta cuenta puede realizar todas las funciones administrativas excepto las siguientes: •Copia de seguridad y recuperación. •Actualización de la base de datos.
+
+- PDBAADMN, este es un rol específico de Oracle que se utiliza en un entorno de base de datos contenedor con múltiples bases de datos contenedor plugables (PDB). Este rol se crea automáticamente cuando se crea una base de datos contenedor. Los usuarios que tienen el rol PDBAADMN pueden administrar todas las bases de datos contenedor, pero no tienen acceso a las operaciones de SYSDBA o SYSOPER en la base de datos contenedor raíz. Este rol facilita la gestión de entornos de base de datos con múltiples PDB. PDBAADMN es el administrador de la base de datos local (PDB) y tiene privilegios para administrar esa base de datos específica dentro del contenedor. Sus privilegios están restringidos al ámbito de la PDB asignada.
+
+  ![Captura 29](img/Captura%20de%20pantalla%202026-11-11%20123337.png)
+
+### 17. Comprueba si SYSTEM, conectado sin privilegio SYSDBA, puede parar la base de datos. Muestra el resultado y explícalo. Atención: asegúrate de que no te has conectado AS SYSDBA antes de intentarlo.
 
 
 
+### 18. En el servidor, conéctate como SYSTEM AS SYSDBA escribiendo una contraseña incorrecta. ¿Has podido entrar? ¿Con qué usuario? Explica las dos cosas
 
 
 
@@ -288,5 +304,8 @@ Los valores originales, eran `open_cursors` = 300 y `processes` = 300.Luego han 
 - [Inicio y Detener Oracle Database XE](https://docs.oracle.com/en/database/oracle/oracle-database/21/xeinw/starting-and-stopping-oracle-database-xe.html)
 
 - [Archivos del servidor](https://es.scribd.com/document/229452992/Ejemplo-Ficheros-SQL-Net)
+
+- [SYS, SYSTEM, PBDADMIN](https://www.collegesidekick.com/study-docs/15068978)
+
 
 
