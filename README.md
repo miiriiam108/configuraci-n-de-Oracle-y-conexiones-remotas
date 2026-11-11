@@ -362,7 +362,29 @@ Esto se debe a que la conexión se realiza de forma remota y Oracle no puede uti
 
 ### 26. Repite la tarea 18 desde el cliente. Compara el resultado con el de la tarea 18 y explica la diferencia.
 
-Desde cliente he ejecutado: `sqlplus system/1234@//192.168.56.101:1521/XEPDB1 as sysdba`utilizando una contraseña que no es correcta y como se esperaba Oracle rechazó la conexión mostrando un error
+Desde cliente he ejecutado: `sqlplus system/1234@//192.168.56.101:1521/XEPDB1 as sysdba`utilizando una contraseña que no es correcta y como se esperaba Oracle rechazó la conexión mostrando un error. 
+
+En comparación de la tarea 8, que la realicé en el servidor, accedí con una contraseña incorrecta porque Oracle utilizada la autenticación del sistema operativo del propio servidor.
+
+  ![Captura 52](img/Captura%20de%20pantalla%202026-11-11%20193758.png)
+
+
+  ### 27. Configura el cliente para conectarte mediante alias: uno para la CDB y otro, con el nombre que quieras, para la PDB. Conéctate con los dos y demuestra en qué contenedor entras con cada uno.
+
+Modifiqué el fichero tnsnames.ora y añadí dos alias:
+
+- MIRIAM_CDB para la base de datos XE.
+- MIRIAM_PDB para la PDB XEPDB1.
+
+Luego para conectarme a MIRIAM_CDB he utilizado: `sqlplus system/8888@MIRIAM_CDB`y para comprobar el contenedor `show con_name;`.
+
+He seguido los mismo pasos para MIRIAM_PDB
+
+  ![Captura 53](img/Captura%20de%20pantalla%202026-11-11%20194249.png)
+  ![Captura 54](img/Captura%20de%20pantalla%202026-11-11%20194321.png)
+  ![Captura 55](img/Captura%20de%20pantalla%202026-11-11%20194344.png)
+
+
 ## ERRORES
 1. BLOQUE 1: He comprobado que las variables de Oracle no estaban definidas en las variables de entorno de Windows, por lo que las he localizado en el Registro de Windows, donde Oracle almacena parte de su configuración.
    
