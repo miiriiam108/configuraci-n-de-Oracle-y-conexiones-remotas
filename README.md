@@ -271,13 +271,17 @@ Los valores originales, eran `open_cursors` = 300 y `processes` = 300.Luego han 
 
 Me he conectado con `CONNECT SYSTEM`. Al ejecutar `SHUTDOWN IMMEDIATE`, Oracle respondió con un error y la base de datos no se ha parado: `V$INSTANCE` sigue mostrando estado `OPEN`. Esto ocurre porque parar y arrancar la base de datos exige el privilegio SYSDBA o SYSOPER, y SYSTEM, aunque es una cuenta administrativa, no lo tiene en una conexión normal. SYSTEM puede hacer todas las funciones administrativas excepto arrancar y parar, copias de seguridad y recuperación, y actualización de la base de datos.
 
-  ![Captura 30](img/Captura%20de%20pantalla%202026-11-11%20124611.png)
-  ![Captura 31](img/Captura%20de%20pantalla%202026-11-11%20124611.png)
+  ![Captura 30](img/Captura%20de%20pantalla%202026-11-11%20125700.png)
+  ![Captura 31](img/Captura%20de%20pantalla%202026-11-11%20125710.png)
 
 
 ### 18. En el servidor, conéctate como SYSTEM AS SYSDBA escribiendo una contraseña incorrecta. ¿Has podido entrar? ¿Con qué usuario? Explica las dos cosas
+- **¿Has podido entrar?** Sí. Oracle se ha conectado aunque la contraseña era incorrecta. Con `AS SYSDBA`, desde el propio servidor, Oracle usa la autenticación del sistema operativo: mi usuario de Windows (`mv-miriam\miria`) pertenece al grupo `ORA_DBA`, por lo que recibe el privilegio SYSDBA y Oracle no valida la contraseña escrita.
 
 
+- **¿Con qué usuario?** Con `SYS`, no con `SYSTEM`. `SHOW USER` y `SESSION_USER` devuelven `SYS`. Con el privilegio SYSDBA siempre se entra como `SYS`, sea cual sea el nombre escrito.
+
+  ![Captura 32](img/Captura%20de%20pantalla%202026-11-11%20130611.png)
 
 
 
