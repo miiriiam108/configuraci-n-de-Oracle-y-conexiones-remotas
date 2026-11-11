@@ -385,6 +385,14 @@ He seguido los mismo pasos para MIRIAM_PDB
   ![Captura 55](img/Captura%20de%20pantalla%202026-11-11%20194344.png)
 
 
+  ### 28. Crea en SQL Developer dos conexiones a la PDB: una con host, puerto y servicio, y otra con tu alias. Pruébalas y ejecuta en las dos la consulta de la tarea 24
+
+He creado la conexión PDB_HOST Y PDB_MIRIAM
+
+  ![Captura 55](img/Captura%20de%20pantalla%202026-11-11%20195456.png)
+  ![Captura 55](img/Captura%20de%20pantalla%202026-11-11%20195621.png)
+  ![Captura 55](img/Captura%20de%20pantalla%202026-11-11%20195634.png)
+
 ## ERRORES
 1. BLOQUE 1: He comprobado que las variables de Oracle no estaban definidas en las variables de entorno de Windows, por lo que las he localizado en el Registro de Windows, donde Oracle almacena parte de su configuración.
    
