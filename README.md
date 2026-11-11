@@ -239,18 +239,20 @@ Antes de reiniciar, `SHOW PARAMETER` seguía en 300, y `SHOW SPPARAMETER` ya era
 
 Con `ALTER SESSION SET NLS_DATE_FORMAT` cambié el formato de fecha solo para mi sesión. Antes del cambio, `SYSDATE` se mostraba como formato original. Después, aparece como formato nuevo, con año de cuatro cifras y hora. El cambio solo afecta a mi sesión porque los parámetros NLS de sesión se guardan en memoria mientras dura la conexión y no se escriben en el SPFILE. Al reconectar con `CONNECT`, Oracle crea una sesión nueva con los valores por defecto, y `SYSDATE` volvió a mostrarse con el formato original, con lo que el cambio se ha perdido.
 
-  ![Captura 22](img/Captura%20de%20pantalla%202026-11-11%20120451.png)
+  ![Captura 22](img/Captura%20de%20pantalla%202026-11-11%20121938.png)
   
-  ![Captura 23](img/Captura%20de%20pantalla%202026-11-11%20120528.png)
+  ![Captura 23](img/Captura%20de%20pantalla%202026-11-11%20122039.png)
 
 
 ### 15. Deja open_cursors y processes con sus valores originales y demuéstralo
 
+Los valores originales, eran `open_cursors` = 300 y `processes` = 300.Luego han pasado a 375 y 320. `open_cursors` se restauró con `ALTER SYSTEM ... SCOPE=BOTH`, que lo ha aplicado al momento y lo ha guardado. `processes` se restauró con `SCOPE=SPFILE`: antes de reiniciar el valor en uso seguía en 320 y el guardado ya era 300. Tras `SHUTDOWN IMMEDIATE` y `STARTUP`, la instancia leyó el SPFILE y aplicó 300. Ahora los dos parámetros valen 300 en uso y guardados, igual que al principio
 
-
-
-
-
+  ![Captura 24](img/Captura%20de%20pantalla%202026-11-11%20122039.png)
+  ![Captura 25](img/Captura%20de%20pantalla%202026-11-11%20122039.png)
+  ![Captura 26](img/Captura%20de%20pantalla%202026-11-11%20122039.png)
+  ![Captura 27](img/Captura%20de%20pantalla%202026-11-11%20122039.png)
+  ![Captura 28](img/Captura%20de%20pantalla%202026-11-11%20122039.png)
 
 
 
