@@ -213,12 +213,27 @@ es lo normal.
 
 ### 12. Aumenta open_cursors un 25 % de forma inmediata y permanente. Demuestra que el cambio está en uso y guardado
 
-El valor original de `open_cursors` era 300. Un aumento del 25 % es 375. Usé `ALTER SYSTEM SET ... SCOPE=BOTH`: `MEMORY` lo aplica en la instancia en ejecución sin reiniciar y `SPFILE` lo escribe en el archivo de parámetros, y `BOTH` hace las dos cosas. Tras el cambio, `SHOW PARAMETER` y `V$SYSTEM_PARAMETER` muestran 375
-y `SHOW SPPARAMETER` y `V$SPPARAMETER` muestran 375. Además, la fecha de `SPFILEXE.ORA` cambió, lo que confirma que se reescribió.
-
+El valor original de `open_cursors` era 300. Un aumento del 25 % es 375. Usé `ALTER SYSTEM SET ... SCOPE=BOTH`: `MEMORY` lo aplica en la instancia en ejecución sin reiniciar y `SPFILE` lo escribe en el archivo de parámetros, y `BOTH` hace las dos cosas. Después del cambio, `SHOW PARAMETER` y `V$SYSTEM_PARAMETER` muestran 375. Además, la fecha de `SPFILEXE.ORA` cambió, lo que confirma que se reescribió.
+  ![Captura 16](img/Captura%20de%20pantalla%202026-11-11%20114303.png)
 
 
 ### 13. Aumenta processes en 20 de forma permanente. Muestra el valor en uso y el guardado antes y después de reiniciar, y explica la diferencia
+
+
+
+
+
+
+
+
+
+
+
+  ![Captura 16](img/Captura%20de%20pantalla%202026-11-11%20114303.png)
+  ![Captura 16](img/Captura%20de%20pantalla%202026-11-11%20114303.png)
+  ![Captura 16](img/Captura%20de%20pantalla%202026-11-11%20114303.png)
+  ![Captura 16](img/Captura%20de%20pantalla%202026-11-11%20114303.png)
+
 
 
 ### 14. Cambia el formato de fecha a DD/MM/YYYY HH24:MI:SS solo para tu sesión. Demuestra que el cambio funciona y que se pierde al volver a conectar
