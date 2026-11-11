@@ -329,8 +329,14 @@ En el servidor ejecuto: `sqlplus system@//192.168.56.101:1521/XEPDB1` y me pidi√
   ![Captura 44](img/Captura%20de%20pantalla%202026-11-11%20180219.png)
 
 
+## Bloque 6: Cliente remoto
 
 
+### 23. Desde el cliente, comprueba que el puerto del listener es accesible
+
+En cliente he ejecutado: `telnet 192.168.56.101 1521`
+
+  ![Captura 45](img/Captura%20de%20pantalla%202026-11-11%20182029.png)
 
 
 
