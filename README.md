@@ -343,7 +343,7 @@ En cliente he ejecutado: `telnet 192.168.56.101 1521`
 
 Desde el equipo cliente he ejecutado: `sqlplus system/8888@//192.168.56.101:1521/XEPDB1`, y una vez que estaba dentro he comprobado el contenedor con `show con_name` y por último he comprobado la dirección ip que me ve el servidor `SELECT SYS*CONTEXT('USERENV','IP_ADDRESS*)*FROM dual;`
 
-  ![Captura 49](img/Captura%20de%20pantalla%202026-11-11%20192456.png)
+  ![Captura 50](img/Captura%20de%20pantalla%202026-11-11%20192456.png)
 
 
 ## ERRORES
@@ -357,7 +357,8 @@ Para solucionarlo he cambiado esa línea por: `SQLNET.AUTHENTICATION_SERVICES = 
 
   ![Captura 46](img/Captura%20de%20pantalla%202026-11-11%20191723.png)
   ![Captura 47](img/Captura%20de%20pantalla%202026-11-11%20191621.png)
-  ![Captura 48](img/Captura%20de%20pantalla%202026-11-11%20192322.png)
+  ![Captura 48](img/Captura%20de%20pantalla%202026-11-11%20192858.png)
+  ![Captura 49](img/Captura%20de%20pantalla%202026-11-11%20192322.png)
 
 
 
