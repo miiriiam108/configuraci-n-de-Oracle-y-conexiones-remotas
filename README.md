@@ -263,12 +263,16 @@ Los valores originales, eran `open_cursors` = 300 y `processes` = 300.Luego han 
 
 - SYSTEM: El usuario SYSTEM se utiliza para crear tablas y vistas adicionales que muestran información administrativa, tablas internas y vistas utilizado por varias opciones y herramientas de la base de datos ORACLE. No se recomienda utilizar el esquema SYSTEM para almacenar tablas de interés para usuarios no administrativos. Esta cuenta puede realizar todas las funciones administrativas excepto las siguientes: •Copia de seguridad y recuperación. •Actualización de la base de datos.
 
-- PDBAADMN, este es un rol específico de Oracle que se utiliza en un entorno de base de datos contenedor con múltiples bases de datos contenedor plugables (PDB). Este rol se crea automáticamente cuando se crea una base de datos contenedor. Los usuarios que tienen el rol PDBAADMN pueden administrar todas las bases de datos contenedor, pero no tienen acceso a las operaciones de SYSDBA o SYSOPER en la base de datos contenedor raíz. Este rol facilita la gestión de entornos de base de datos con múltiples PDB. PDBAADMN es el administrador de la base de datos local (PDB) y tiene privilegios para administrar esa base de datos específica dentro del contenedor. Sus privilegios están restringidos al ámbito de la PDB asignada.
+- PDBADMIN, este es un rol específico de Oracle que se utiliza en un entorno de base de datos contenedor con múltiples bases de datos contenedor plugables (PDB). Este rol se crea automáticamente cuando se crea una base de datos contenedor. Los usuarios que tienen el rol PDBAADMN pueden administrar todas las bases de datos contenedor, pero no tienen acceso a las operaciones de SYSDBA o SYSOPER en la base de datos contenedor raíz. Este rol facilita la gestión de entornos de base de datos con múltiples PDB. PDBAADMN es el administrador de la base de datos local (PDB) y tiene privilegios para administrar esa base de datos específica dentro del contenedor. Sus privilegios están restringidos al ámbito de la PDB asignada.
 
-  ![Captura 29](img/Captura%20de%20pantalla%202026-11-11%20123337.png)
+  ![Captura 29](img/Captura%20de%20pantalla%202026-11-11%20124611.png)
 
 ### 17. Comprueba si SYSTEM, conectado sin privilegio SYSDBA, puede parar la base de datos. Muestra el resultado y explícalo. Atención: asegúrate de que no te has conectado AS SYSDBA antes de intentarlo.
 
+Me he conectado con `CONNECT SYSTEM`. Al ejecutar `SHUTDOWN IMMEDIATE`, Oracle respondió con un error y la base de datos no se ha parado: `V$INSTANCE` sigue mostrando estado `OPEN`. Esto ocurre porque parar y arrancar la base de datos exige el privilegio SYSDBA o SYSOPER, y SYSTEM, aunque es una cuenta administrativa, no lo tiene en una conexión normal. SYSTEM puede hacer todas las funciones administrativas excepto arrancar y parar, copias de seguridad y recuperación, y actualización de la base de datos.
+
+  ![Captura 30](img/Captura%20de%20pantalla%202026-11-11%20124611.png)
+  ![Captura 31](img/Captura%20de%20pantalla%202026-11-11%20124611.png)
 
 
 ### 18. En el servidor, conéctate como SYSTEM AS SYSDBA escribiendo una contraseña incorrecta. ¿Has podido entrar? ¿Con qué usuario? Explica las dos cosas
@@ -305,7 +309,7 @@ Los valores originales, eran `open_cursors` = 300 y `processes` = 300.Luego han 
 
 - [Archivos del servidor](https://es.scribd.com/document/229452992/Ejemplo-Ficheros-SQL-Net)
 
-- [SYS, SYSTEM, PBDADMIN](https://www.collegesidekick.com/study-docs/15068978)
+- [SYS, SYSTEM, PDBADMIN](https://www.collegesidekick.com/study-docs/15068978)
 
 
 
