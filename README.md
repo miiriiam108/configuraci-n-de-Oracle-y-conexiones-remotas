@@ -320,14 +320,13 @@ Por tanto, el listener permite conexiones desde otros equipos de la red y no ha 
 
 He comprobado la configuración con: `netsh advfirewall firewall show rule name="Oracle 1521 red VM"`. Con esta configuración, solo los equipos de la red 192.168.56.0/24 pueden conectarse al puerto 1521.
 
-
-
   ![Captura 43](img/Captura%20de%20pantalla%202026-11-11%20175511.png)
 
 ### 22. Desde el propio servidor, conéctate a la PDB usando su IP (no localhost ) y comprueba que el listener responde
 
+En el servidor ejecuto: `sqlplus system@//192.168.56.101:1521/XEPDB1` y me pidió la contraseña de SYSTEM. Una vez que ya estaba dentro para ver la PBD que utiliza lo hice con: `show con_name;`
 
-
+  ![Captura 44](img/Captura%20de%20pantalla%202026-11-11%20180219.png)
 
 
 
