@@ -276,6 +276,7 @@ Me he conectado con `CONNECT SYSTEM`. Al ejecutar `SHUTDOWN IMMEDIATE`, Oracle r
 
 
 ### 18. En el servidor, conéctate como SYSTEM AS SYSDBA escribiendo una contraseña incorrecta. ¿Has podido entrar? ¿Con qué usuario? Explica las dos cosas
+
 - **¿Has podido entrar?** Sí. Oracle se ha conectado aunque la contraseña era incorrecta. Con `AS SYSDBA`, desde el propio servidor, Oracle usa la autenticación del sistema operativo: mi usuario de Windows (`mv-miriam\miria`) pertenece al grupo `ORA_DBA`, por lo que recibe el privilegio SYSDBA y Oracle no valida la contraseña escrita.
 
 
@@ -341,11 +342,27 @@ En cliente he ejecutado: `telnet 192.168.56.101 1521`
 
 ### 24. Conéctate desde el cliente con SQL*Plus a la PDB como SYSTEM. Demuestra con una consulta en qué contenedor estás y desde qué IP te ve el servidor.
 
-Desde el equipo cliente he ejecutado: `sqlplus system/8888@//192.168.56.101:1521/XEPDB1`, y una vez que estaba dentro he comprobado el contenedor con `show con_name` y por último he comprobado la dirección ip que me ve el servidor `SELECT SYS*CONTEXT('USERENV','IP_ADDRESS*)*FROM dual;`
+Desde cliente he ejecutado: `sqlplus system/8888@//192.168.56.101:1521/XEPDB1`, y una vez que estaba dentro he comprobado el contenedor con `show con_name` y por último he comprobado la dirección ip que me ve el servidor `SELECT SYS*CONTEXT('USERENV','IP_ADDRESS*)*FROM dual;`
 
   ![Captura 50](img/Captura%20de%20pantalla%202026-11-11%20192456.png)
 
 
+### 25. Conéctate desde el cliente a la PDB como SYS. ¿Qué te hace falta que en la tarea 5 no necesitabas?
+
+Desde cliente he ejecutado: `sqlplus sys/8888@//192.168.56.101:1521/XEPDB1 as sysdba` y la conexión se ha realizado correctamente.
+
+En la tarea 5 me conecté utilizando `sqlplus / as sysdba` sin necesidad de indicar usuario ni contraseña, ya que la autenticación se realizaba mediante el sistema operativo del servidor.
+
+Sin embargo, al conectarme desde un equipo cliente ha sido necesario indicar, el usuario (SYS), la contraseña, la dirección IP del servidor, el servicio (XEPDB1) y el privilegio AS SYSDBA.
+
+Esto se debe a que la conexión se realiza de forma remota y Oracle no puede utilizar la autenticación del sistema operativo del servidor.
+
+  ![Captura 51](img/Captura%20de%20pantalla%202026-11-11%20193150.png)
+
+
+### 26. Repite la tarea 18 desde el cliente. Compara el resultado con el de la tarea 18 y explica la diferencia.
+
+Desde cliente he ejecutado: `sqlplus system/1234@//192.168.56.101:1521/XEPDB1 as sysdba`utilizando una contraseña que no es correcta y como se esperaba Oracle rechazó la conexión mostrando un error
 ## ERRORES
 1. BLOQUE 1: He comprobado que las variables de Oracle no estaban definidas en las variables de entorno de Windows, por lo que las he localizado en el Registro de Windows, donde Oracle almacena parte de su configuración.
    
